@@ -715,6 +715,10 @@ public class BluetoothCommunicator {
         }
     }
 
+    public String getUniqueName() {
+        return uniqueName;
+    }
+
     public ArrayList<Peer> getConnectedPeersList() {
         ArrayList<Peer> connectedPeers = new ArrayList<>();
         if (connectionServer != null && connectionClient != null) {
