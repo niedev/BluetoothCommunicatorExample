@@ -73,6 +73,7 @@ bluetoothCommunicator.addCallback(new BluetoothCommunicator.Callback() {
     @Override
     public void onPeerFound(Peer peer) {
         super.onPeerFound(peer);
+        
         Here for example you can save peer in a list or anywhere you want and when the user
         choose a peer you can call bluetoothCommunicator.connect(peer founded) but if you want to
         use a peer for connect you have to have peer updated (see onPeerUpdated or onPeerLost), if you use a
@@ -83,6 +84,7 @@ bluetoothCommunicator.addCallback(new BluetoothCommunicator.Callback() {
     @Override
     public void onPeerLost(Peer peer){
         super.onPeerLost(peer);
+        
         It means that a peer is out of range or has interrupted the advertise,
         here you can delete the peer lost from a eventual collection of founded peers
     }
@@ -147,6 +149,7 @@ bluetoothCommunicator.addCallback(new BluetoothCommunicator.Callback() {
     @Override
     public void onConnectionResumed(Peer peer){
         super.onConnectionResumed(peer);
+        
         Means that connection lost is resumed successfully
     }
 
@@ -199,3 +202,5 @@ To use this library add these permissions to your manifest:
 <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
  ```
+ 
+For more details see the code of this example app
