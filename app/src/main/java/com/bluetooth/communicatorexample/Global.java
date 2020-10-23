@@ -46,7 +46,6 @@ public class Global extends Application {
         bluetoothCommunicator = new BluetoothCommunicator(this, name, BluetoothCommunicator.STRATEGY_P2P_WITH_RECONNECTION);
     }
 
-
     public BluetoothCommunicator getBluetoothCommunicator() {
         return bluetoothCommunicator;
     }
