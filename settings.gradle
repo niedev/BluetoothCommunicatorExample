@@ -1,3 +1,2 @@
-include ':BluetoothCommunicatorLibrary'
 include ':app'
-rootProject.name = "BluetoothCommunicator"
+rootProject.name = "BluetoothCommunicatorExample"

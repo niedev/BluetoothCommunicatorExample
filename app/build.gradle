@@ -9,7 +9,7 @@ android {
     buildToolsVersion "28.0.3"
 
     defaultConfig {
-        applicationId "com.bluetooth.communicator"
+        applicationId "com.bluetooth.communicatorexample"
         minSdkVersion 23
         targetSdkVersion 28
         versionCode 1
@@ -30,12 +30,13 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+    //bluetooth communicator
+    implementation 'com.github.niedev:BluetoothCommunicator:1.0.1'
     // Support libraries
     implementation "com.google.android.material:material:1.0.0"
     implementation "androidx.cardview:cardview:1.0.0"
     implementation "androidx.recyclerview:recyclerview:1.0.0"
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation project(path: ':BluetoothCommunicatorLibrary')
     // Tests
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

@@ -17,14 +17,14 @@
 
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.bluetooth.communicator">
+    package="com.bluetooth.communicatorexample">
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
-        android:name="com.bluetooth.communicator.Global"
+        android:name="com.bluetooth.communicatorexample.Global"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -32,7 +32,7 @@
         android:supportsRtl="true"
         android:largeHeap="true"
         android:theme="@style/Theme.Speech">
-        <activity android:name=".MainActivity"
+        <activity android:name="com.bluetooth.communicatorexample.MainActivity"
             android:configChanges="orientation|screenSize">
 
             <intent-filter>
