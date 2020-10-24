@@ -36,6 +36,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
+import com.bluetooth.communicator.tools.Timer;
 import com.bluetooth.communicatorexample.Global;
 import com.bluetooth.communicatorexample.MainActivity;
 import com.bluetooth.communicatorexample.R;
@@ -47,8 +48,6 @@ import com.bluetooth.communicatorexample.gui.RequestDialog;
 import com.bluetooth.communicatorexample.tools.Tools;
 import com.bluetooth.communicator.BluetoothCommunicator;
 import com.bluetooth.communicator.Peer;
-import com.bluetooth.communicator.connection.Channel;
-import com.bluetooth.communicator.connection.client.BluetoothConnectionClient;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -62,7 +61,7 @@ public class PairingFragment extends Fragment {
     private ConstraintLayout constraintLayout;
     private Peer confirmConnectionPeer;
     private ListView listViewGui;
-    private Channel.Timer connectionTimer;
+    private Timer connectionTimer;
     @Nullable
     private PeerListAdapter listView;
     private TextView discoveryDescription;
@@ -139,7 +138,7 @@ public class PairingFragment extends Fragment {
             public void onConnectionFailed(Peer peer, int errorCode) {
                 super.onConnectionFailed(peer, errorCode);
                 if (connectingPeer != null) {
-                    if (connectionTimer != null && !connectionTimer.isFinished() && errorCode != BluetoothConnectionClient.CONNECTION_REJECTED) {
+                    if (connectionTimer != null && !connectionTimer.isFinished() && errorCode != BluetoothCommunicator.CONNECTION_REJECTED) {
                         // the timer has not expired and the connection has not been refused, so we try again
                         activity.connect(peer);
                     } else {
@@ -149,7 +148,7 @@ public class PairingFragment extends Fragment {
                         activateInputs();
                         disappearLoading(true, null);
                         connectingPeer = null;
-                        if (errorCode == BluetoothConnectionClient.CONNECTION_REJECTED) {
+                        if (errorCode == BluetoothCommunicator.CONNECTION_REJECTED) {
                             Toast.makeText(activity, peer.getName() + " refused the connection request", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(activity, "Connection error", Toast.LENGTH_SHORT).show();
@@ -399,7 +398,7 @@ public class PairingFragment extends Fragment {
     }
 
     private void startConnectionTimer() {
-        connectionTimer = new Channel.Timer(CONNECTION_TIMEOUT);
+        connectionTimer = new Timer(CONNECTION_TIMEOUT);
         connectionTimer.start();
     }
 
