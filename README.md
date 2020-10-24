@@ -10,26 +10,70 @@ When one of the user press the back button the connection stops and the apps wil
 
 #### BluetoothCommunicator library:
 
-The library automatically implements (they are active by default) reconnection in case of temporary connection loss, reliable message sending,
-splitting and rebuilding of long messages, sending raw data in addition to text messages and a message queue in order to always send the messages (and always in the right order)
-even in case of connection problems (they will be sent as soon as the connection is restored)
+BluetoothCommunicator is a library that, using Bluetooth Low Energy, allows you to communicate in P2P mode between two or more android devices.<br />
+BluetoothCommunicator was created for <a href="https://github.com/niedev/RTranslator" target="_blank" rel="noopener noreferrer">RTranslator</a> but can be used in any more generic case where a P2P communication system is needed between two or more android devices (up to about 4 with a direct connection between all devices, even more with a star structure), for see an example app see <a href="https://github.com/niedev/BluetoothCommunicatorExample" target="_blank" rel="noopener noreferrer">BluetoothCommunicatorExample</a> or <a href="https://github.com/niedev/RTranslator" target="_blank" rel="noopener noreferrer">RTranslator</a><br /><br />
 
-First create a bluetooth communicator object, it is the object that handles all operations of bluetooth low energy library, if you want to manage
-the bluetooth connections in multiple activities I suggest you to save this object as an attribute of a custom class that extends Application and
-create a getter so you can access to bluetoothCommunicator from any activity or service with:
+BluetoothCommunicator automatically implements (they are active by default) reconnection in case of temporary connection loss, reliable message sending, splitting and rebuilding of long messages, sending raw data in addition to text messages and a message queue in order to always send the messages (and always in the right order) even in case of connection problems (they will be sent as soon as the connection is restored)
 
+#### Tutorial
+For use the library in a project you have to add jitpack.io to your root build.gradle (project):
+```
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+Then add the last version of BluetoothCommunicator to your app build.gradle
+```
+dependencies {
+        implementation 'com.github.niedev:BluetoothCommunicator:1.0.5'
+}
+```
+
+To use this library add these permissions to your manifest:
+```
+<uses-permission android:name="android.permission.BLUETOOTH"/>
+<uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+```
+Then add android:largeHeap="true" to the application tag in the manifest:<br />
+Example
+```
+<uses-permission android:name="android.permission.BLUETOOTH" />
+<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+<application
+    android:name="com.bluetooth.communicatorexample.Global"
+    android:allowBackup="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true"
+    android:largeHeap="true"
+    android:theme="@style/Theme.Speech">
+    <activity android:name="com.bluetooth.communicatorexample.MainActivity"
+        android:configChanges="orientation|screenSize">
+
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+</application>
+```
+
+After the installation of the library and the changes to the manifest is time to write the code: create a bluetooth communicator object, it is the object that handles all operations of bluetooth low energy library, if you want to manage the bluetooth connections in multiple activities I suggest you to save this object as an attribute of a custom class that extends Application and create a getter so you can access to bluetoothCommunicator from any activity or service with:
 ```
 ((custom class name) getApplication()).getBluetoothCommunicator();
 ```
-Next step is to initialize bluetoothCommunicator, the parameters are: a context, the name by which the other devices will see us (limited to 18 characters
-and can be only characters listed in BluetoothTools.getSupportedUTFCharacters(context) because the number of bytes for advertising beacon is limited) and the strategy
-(for now the only supported strategy is BluetoothCommunicator.STRATEGY_P2P_WITH_RECONNECTION)
-
+Next step is to initialize bluetoothCommunicator, the parameters are: a context, the name by which the other devices will see us (limited to 18 characters and can be only characters listed in BluetoothTools.getSupportedUTFCharacters(context) because the number of bytes for advertising beacon is limited) and the strategy (for now the only supported strategy is BluetoothCommunicator.STRATEGY_P2P_WITH_RECONNECTION)
 ```
 bluetoothCommunicator = new BluetoothCommunicator(this, "device name", BluetoothCommunicator.STRATEGY_P2P_WITH_RECONNECTION);
 ```
 Then add the bluetooth communicator callback, the callback will listen for all events of bluetooth communicator:
-
 ```
 bluetoothCommunicator.addCallback(new BluetoothCommunicator.Callback() {
     @Override
@@ -188,19 +232,17 @@ bluetoothCommunicator.addCallback(new BluetoothCommunicator.Callback() {
 });
 ```
 Finally you can start discovery and/or advertising:
-
 ```
 bluetoothCommunicator.startAdvertising();
 bluetoothCommunicator.startDiscovery();
+```
 All other actions that can be done are explained with the comments in the code of callback I wrote before.
-```
-
-To use this library add these permissions to your manifest:
- 
-```
-<uses-permission android:name="android.permission.BLUETOOTH"/>
-<uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
- ```
- 
 For more details see the code of this example app
+
+#### Advanced
+For anyone who wants to examinate the library code and generate the .aar file after clone the library on Android Studio:
+click on the "Gradle" tab in the right edge of Android Studio, then click on BluetoothCommunicator -> app -> Task -> build -> assemble, then go to the local folder of the BluetoothCommunicator project and click on app -> build -> outputs -> aar, here will be the debug and release .aar files
+
+#### Bugs and problems
+Avoid to have installed on your phone multiple apps that use this library, because in that case the bluetooth connection will have problems (maybe it is due to the fact that they are running advertising with the same UUID, try downloading the source files and changing the advertising UUID in the code if you want to try to fix).
+In case you have multiple apps using this library, uninstall all but one of them and restart your device in case of problems.
