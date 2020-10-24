@@ -131,8 +131,8 @@ bluetoothCommunicator.addCallback(new BluetoothCommunicator.Callback() {
         super.onConnectionFailed(peer,errorCode);
 
         This means that your connection request is rejected or has other problems,
-        to know the cause of the failure see errorCode (BluetoothConnectionClient.CONNECTION_REJECTED
-        means rejected connection and BluetoothConnectionClient.ERROR means generic error)
+        to know the cause of the failure see errorCode (BluetoothCommunicator.CONNECTION_REJECTED
+        means rejected connection and BluetoothCommunicator.ERROR means generic error)
     }
 
     @Override
