@@ -14,8 +14,8 @@ Galaxy Note 10             |  Galaxy Note 8            |  Galaxy Note 10
 <br /><br />
 ### BluetoothCommunicator library
 
-BluetoothCommunicator is a library that, using Bluetooth Low Energy, allows you to communicate in P2P mode between two or more android devices.<br />
-BluetoothCommunicator was created for <a href="https://github.com/niedev/RTranslator" target="_blank" rel="noopener noreferrer">RTranslator</a> but can be used in any more generic case where a P2P communication system is needed between two or more android devices (up to about 4 with a direct connection between all devices, even more with a star structure), for see an example app see <a href="https://github.com/niedev/BluetoothCommunicatorExample" target="_blank" rel="noopener noreferrer">BluetoothCommunicatorExample</a> or <a href="https://github.com/niedev/RTranslator" target="_blank" rel="noopener noreferrer">RTranslator</a><br /><br />
+BluetoothCommunicator is a library that, using Bluetooth Low Energy, allows you to communicate in P2P mode between two or more android devices.<br /><br />
+BluetoothCommunicator was created for <a href="https://github.com/niedev/RTranslator" target="_blank" rel="noopener noreferrer">RTranslator</a> but can be used in any more generic case where a P2P communication system is needed between two or more android devices (up to about 4 with a direct connection between all devices, even more with a star structure), for an example app see this repository or <a href="https://github.com/niedev/RTranslator" target="_blank" rel="noopener noreferrer">RTranslator</a><br /><br />
 
 BluetoothCommunicator automatically implements (they are active by default) reconnection in case of temporary connection loss, reliable message sending, splitting and rebuilding of long messages, sending raw data in addition to text messages and a message queue in order to always send the messages (and always in the right order) even in case of connection problems (they will be sent as soon as the connection is restored)
 
