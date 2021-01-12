@@ -11,9 +11,11 @@ When one of the user press the back button the connection stops and the apps wil
 <br /><br />
 Galaxy Note 10             |  Galaxy Note 8            |  Galaxy Note 10          
 :-------------------------:|:-------------------------:|:-------------------------:
-![Connection screen](https://github.com/niedev/BluetoothCommunicatorExample/blob/main/images/Screenshot_pairing.jpg)  |  ![Chat screen 1](https://github.com/niedev/BluetoothCommunicatorExample/blob/main/images/Screenshot_chat1.jpg) | ![Chat screen 2](https://github.com/niedev/BluetoothCommunicatorExample/blob/main/images/Screenshot_chat2.jpg)
+![Connection screen](https://github.com/niedev/BluetoothCommunicatorExample/blob/main/images/Screenshot_pairing.jpg)  |  ![Chat screen 1](https://github.com/niedev/BluetoothCommunicatorExample/blob/main/images/Screenshot_chat1.jpg) | ![Chat screen 2](https://github.com/niedev/BluetoothCommunicatorExample/blob/main/images/Screenshot_chat2.jpg) 
 
-<br /><br />
+
+If you want to see the demo app in action you can download it from [here](https://github.com/niedev/BluetoothCommunicatorExample/releases/download/1.0.0/BluetoothCommunicatorExample_1.0.0.apk).<br /><br />
+
 ### BluetoothCommunicator library
 
 [BluetoothCommunicator](https://github.com/niedev/BluetoothCommunicator) is a library originally created for <a href="https://github.com/niedev/RTranslator" target="_blank" rel="noopener noreferrer">RTranslator</a> but can be used in any more generic case where a P2P communication system is needed between two or more android devices (approximately up to 4 with a direct connection between all devices, even more with a star structure), for an example app see this repository or <a href="https://github.com/niedev/RTranslator" target="_blank" rel="noopener noreferrer">RTranslator</a><br /><br />
