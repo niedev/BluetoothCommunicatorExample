@@ -1,10 +1,12 @@
 ### BluetoothCommunicator example
 
 This repository contains an open source sample application of the [BluetoothCommunicator library](https://github.com/niedev/BluetoothCommunicator).<br />
-The library, using Bluetooth Low Energy, allows you to communicate in P2P mode between two or more android devices.
+The library, using Bluetooth Low Energy, allows you to communicate in P2P mode between two or more android devices.<br /><br />
 
 The application is a Bluetooth chat, when the app is open in the first screen (search) it discovers nearby devices with the app open in the same search screen and shows them in a list containing the code number name of the phones (the name is customizable in the library, but not in the app). <br />
+
 When the user clicks on one of the names the app sends a connection request to that phone and if the latter accepts it, both apps start the chat screen where the two devices can send text messages (the library can send also raw data) to each other. <br />
+
 When one of the user press the back button the connection stops and the apps will return to the search screen.
 <br /><br />
 Galaxy Note 10             |  Galaxy Note 8            |  Galaxy Note 10          
