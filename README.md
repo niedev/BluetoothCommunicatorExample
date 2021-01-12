@@ -1,6 +1,6 @@
 ### BluetoothCommunicator example
 
-This repository contains an open source sample application of the [BluetoothCommunicator library](https://github.com/niedev/BluetoothCommunicator) created for [RTranslator](https://github.com/niedev/RTranslator).<br />
+This repository contains an open source sample application of the [BluetoothCommunicator library](https://github.com/niedev/BluetoothCommunicator).<br />
 The library, using Bluetooth Low Energy, allows you to communicate in P2P mode between two or more android devices.
 
 The application is a Bluetooth chat, when the app is open in the first screen (search) it discovers nearby devices with the app open in the same search screen and shows them in a list containing the code number name of the phones (the name is customizable in the library, but not in the app). <br />
