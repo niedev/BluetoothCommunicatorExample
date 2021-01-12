@@ -35,7 +35,7 @@ allprojects {
 Then add the last version of BluetoothCommunicator to your app build.gradle
 ```
 dependencies {
-        implementation 'com.github.niedev:BluetoothCommunicator:1.0.5'
+        implementation 'com.github.niedev:BluetoothCommunicator:1.0.6'
 }
 ```
 
