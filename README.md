@@ -1,7 +1,7 @@
 ### BluetoothCommunicator example
 
 This repository contains an open source sample application of the [BluetoothCommunicator library](https://github.com/niedev/BluetoothCommunicator).<br />
-The library, using Bluetooth Low Energy, allows you to communicate in P2P mode between two or more android devices.<br /><br />
+The library, using Bluetooth Low Energy, allows you to communicate in P2P mode between two or more android devices in a very simple way.<br /><br />
 
 The application is a Bluetooth chat, when the app is open in the first screen (search) it discovers nearby devices with the app open in the same search screen and shows them in a list containing the code number name of the phones (the name is customizable in the library, but not in the app). <br />
 
@@ -9,9 +9,12 @@ When the user clicks on one of the names the app sends a connection request to t
 
 When one of the user press the back button the connection stops and the apps will return to the search screen.
 <br /><br />
-Galaxy Note 10             |  Galaxy Note 8            |  Galaxy Note 10          
-:-------------------------:|:-------------------------:|:-------------------------:
-![Connection screen](https://github.com/niedev/BluetoothCommunicatorExample/blob/main/images/Screenshot_pairing.jpg)  |  ![Chat screen 1](https://github.com/niedev/BluetoothCommunicatorExample/blob/main/images/Screenshot_chat1.jpg) | ![Chat screen 2](https://github.com/niedev/BluetoothCommunicatorExample/blob/main/images/Screenshot_chat2.jpg) 
+
+<p align="middle">
+  <img src="https://github.com/niedev/BluetoothCommunicatorExample/blob/main/images/Screenshot_pairing.jpg" width="300" />
+  <img src="https://github.com/niedev/BluetoothCommunicatorExample/blob/main/images/Screenshot_chat1.jpg" width="308" /> 
+  <img src="https://github.com/niedev/BluetoothCommunicatorExample/blob/main/images/Screenshot_chat2.jpg" width="300" />
+</p>
 
 
 If you want to see the demo app in action you can download it from [here](https://github.com/niedev/BluetoothCommunicatorExample/releases/download/1.0.0/BluetoothCommunicatorExample_1.0.0.apk).<br /><br />
@@ -20,7 +23,14 @@ If you want to see the demo app in action you can download it from [here](https:
 
 [BluetoothCommunicator](https://github.com/niedev/BluetoothCommunicator) is a library originally created for <a href="https://github.com/niedev/RTranslator" target="_blank" rel="noopener noreferrer">RTranslator</a> but can be used in any more generic case where a P2P communication system is needed between two or more android devices (approximately up to 4 with a direct connection between all devices, even more with a star structure), for an example app see this repository or <a href="https://github.com/niedev/RTranslator" target="_blank" rel="noopener noreferrer">RTranslator</a>.
 
-BluetoothCommunicator automatically implements (they are active by default) reconnection in case of temporary connection loss, reliable message sending, splitting and rebuilding of long messages, sending raw data in addition to text messages and a message queue in order to always send the messages (and always in the right order) even in case of connection problems (they will be sent as soon as the connection is restored)
+#### Features
+BluetoothCommunicator automatically implements (they are active by default):
+- reconnection in case of temporary connection loss.
+- reliable message sending: 
+
+    - splitting and rebuilding of long messages.
+
+    - sending messages with a queue in order to always send the messages even in case of connection problems (they will be sent as soon as the connection is restored) and in the right order.<br /><br />
 
 #### Tutorial
 For use the library in a project you have to add jitpack.io to your root build.gradle (project):
@@ -43,14 +53,21 @@ To use this library add these permissions to your manifest:
 ```
 <uses-permission android:name="android.permission.BLUETOOTH"/>
 <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 ```
+
+If you need to use bluetooth advertising or search in background you need to add also the following permission:
+```
+<uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+```
+
 Then add android:largeHeap="true" to the application tag in the manifest:<br />
 Example
 ```
 <uses-permission android:name="android.permission.BLUETOOTH" />
 <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
 <application
     android:name="com.bluetooth.communicatorexample.Global"
