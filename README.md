@@ -11,9 +11,9 @@ When one of the user press the back button the connection stops and the apps wil
 <br /><br />
 
 <p align="middle">
-  <img src="https://github.com/niedev/BluetoothCommunicatorExample/blob/main/images/Screenshot_pairing.jpg" width="280" />
-  <img src="https://github.com/niedev/BluetoothCommunicatorExample/blob/main/images/Screenshot_chat1.jpg" width="286" /> 
-  <img src="https://github.com/niedev/BluetoothCommunicatorExample/blob/main/images/Screenshot_chat2.jpg" width="280" />
+  <img src="https://github.com/niedev/BluetoothCommunicatorExample/blob/main/images/Screenshot_pairing.jpg" width="250" />
+  <img src="https://github.com/niedev/BluetoothCommunicatorExample/blob/main/images/Screenshot_chat1.jpg" width="255" /> 
+  <img src="https://github.com/niedev/BluetoothCommunicatorExample/blob/main/images/Screenshot_chat2.jpg" width="250" />
 </p>
 
 
