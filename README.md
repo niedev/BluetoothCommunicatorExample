@@ -12,7 +12,7 @@ When one of the user press the back button the connection stops and the apps wil
 
 <p align="middle">
   <img src="https://github.com/niedev/BluetoothCommunicatorExample/blob/main/images/Screenshot_pairing.jpg" width="260" />
-  <img src="https://github.com/niedev/BluetoothCommunicatorExample/blob/main/images/Screenshot_chat1.jpg" width="266" /> 
+  <img src="https://github.com/niedev/BluetoothCommunicatorExample/blob/main/images/Screenshot_chat1.jpg" width="267" /> 
   <img src="https://github.com/niedev/BluetoothCommunicatorExample/blob/main/images/Screenshot_chat2.jpg" width="260" />
 </p>
 
